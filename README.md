@@ -31,4 +31,4 @@ Para usarlo, simplemente ejecuta en tu terminal:
 
 Bash protocolo-apagado
 
-Repositorio mantenido por Luxce2.
+## Repositorio mantenido por Luxce2.
