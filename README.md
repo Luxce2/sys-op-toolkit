@@ -7,7 +7,7 @@ Bienvenido a mi arsenal personal de scripts y automatizaciones. Este repositorio
 ## 📜 Scripts Disponibles
 
 ### 🛑 Protocolo de Apagado Seguro (`protocolo-apagado.sh`)
-Un "botón de pánico" o script de cierre seguro diseñado para evitar la corrupción de datos antes de apagar el equipo. 
+Un "botón de pánico" diseñado para evitar la corrupción de datos antes de apagar el equipo. 
 
 **¿Qué hace?**
 1. Detiene todos los contenedores de **Docker** de forma segura.
@@ -15,20 +15,45 @@ Un "botón de pánico" o script de cierre seguro diseñado para evitar la corrup
 3. Libera la VRAM cerrando procesos atascados en la **GPU (NVIDIA)**.
 4. Cierra sesiones en segundo plano de **Tmux** y **Screen**.
 5. Obliga a sincronizar la memoria RAM con el disco duro (`sync`).
-6. Guarda un registro de todo lo cerrado en `~/historial_apagado.log`.
+6. Genera un log detallado en `~/historial_apagado.log`.
 
-**⚙️ Instalación y Uso**
-Para poder ejecutar este comando desde cualquier parte de tu terminal, te recomiendo crear un enlace simbólico (symlink) a tu carpeta de binarios:
+---
+
+### 🛡️ Sistema de Rescate Synaptik (El "Ctrl+Z" de Emergencia)
+Conjunto de herramientas para editar código en "caliente" sin miedo a romper la base de datos o el proyecto.
+
+#### 1. `save-synaptik` (`backup-synaptik.sh`)
+Crea un punto de restauración total (incluyendo archivos `.env` y datos de Postgres).
+* **Origen:** Disco Kingston (`/media/luxce2/Kingston/synaptik-lite`)
+* **Destino:** Disco Principal (`~/respaldos_synaptik`)
+* **Retención:** Mantiene estrictamente los **2 respaldos más recientes** para optimizar espacio.
+
+#### 2. `restore-synaptik` (`restore-synaptik.sh`)
+Restaura el proyecto al último estado guardado en segundos.
+* **Acción:** Detecta el backup más nuevo, pide confirmación y sobreescribe el Kingston.
+* **Permisos:** Restaura automáticamente la propiedad de los archivos a tu usuario local.
+
+---
+
+## ⚙️ Instalación y Configuración Global
+
+Para ejecutar estos scripts como comandos globales desde cualquier parte de la terminal, sigue estos pasos:
 
 ```bash
-# 1. Dale permisos de ejecución
-chmod +x protocolo-apagado.sh
+# 1. Dar permisos de ejecución a todos los scripts
+chmod +x ~/mis-scripts-personales/*.sh
 
-# 2. Crea el enlace global (opcional)
+# 2. Crear los enlaces simbólicos (Comandos Globales)
 sudo ln -s ~/mis-scripts-personales/protocolo-apagado.sh /usr/local/bin/protocolo-apagado
+sudo ln -s ~/mis-scripts-personales/backup-synaptik.sh /usr/local/bin/save-synaptik
+sudo ln -s ~/mis-scripts-personales/restore-synaptik.sh /usr/local/bin/restore-synaptik
 
-Para usarlo, simplemente ejecuta en tu terminal:
+🚀 Uso Rápido
 
-Bash protocolo-apagado
+    Para apagar todo seguro: protocolo-apagado
 
-## Repositorio mantenido por Luxce2.
+    Para guardar un punto de control: sudo save-synaptik
+
+    Para volver atrás si algo explotó: sudo restore-synaptik
+
+Repositorio mantenido con ❤️ por Luxce2.
