@@ -26,3 +26,9 @@ chmod +x protocolo-apagado.sh
 
 # 2. Crea el enlace global (opcional)
 sudo ln -s ~/mis-scripts-personales/protocolo-apagado.sh /usr/local/bin/protocolo-apagado
+
+Para usarlo, simplemente ejecuta en tu terminal:
+
+Bash protocolo-apagado
+
+Repositorio mantenido por Luxce2.
