@@ -116,8 +116,7 @@ fi
 # ==============================================================================
 # 7. APAGADO FINAL
 # ==============================================================================
-registrar_log "🏁 Protocolo finalizado con éxito. El sistema es seguro."
-registrar_log "🔌 Apagando la máquina en 3, 2, 1..."
+registrar_log "🏁 Protocolo finalizado con éxito. El sistema es seguro, puedes apagar la máquina."
 registrar_log "----------------------------------------------------"
 
 # sudo poweroff

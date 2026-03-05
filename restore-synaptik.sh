@@ -14,7 +14,7 @@ if [ "$EUID" -ne 0 ]; then
 fi
 
 # 2. CONFIGURACIÓN DE RUTAS
-RUTA_DESTINO="/media/luxce2/Kingston" 
+RUTA_DESTINO="/mnt/Kingston/"
 RUTA_RESPALDOS="/home/luxce2/respaldos_synaptik"
 
 echo "----------------------------------------------------"
@@ -46,7 +46,8 @@ echo "⏳ Extrayendo archivos en $RUTA_DESTINO..."
 if tar -xzf "$ULTIMO_BACKUP" -C "$RUTA_DESTINO"; then
     echo "✅ ¡Éxito! Synaptik ha sido restaurado a su estado anterior."
     
-    # 5. AJUSTAR DUEÑO (Nuevamente, devolvemos el Kingston a luxce2)
+    # 5. AJUSTAR DUEÑO
+    # Apuntamos a la carpeta extraída dentro del destino
     chown -R luxce2:luxce2 "$RUTA_DESTINO/synaptik-lite"
     echo "👤 Permisos de usuario restaurados en el Kingston."
 else

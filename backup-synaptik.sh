@@ -18,7 +18,7 @@ fi
 # 2. CONFIGURACIÓN DE RUTAS
 # ------------------------------------------------------------------------------
 # Ruta donde vive el proyecto (Disco Kingston)
-RUTA_SYNAPTIK="/media/luxce2/Kingston/synaptik-lite"
+RUTA_SYNAPTIK="/mnt/Kingston/synaptik-lite"
 
 # Ruta donde guardamos los salvavidas (Disco Principal)
 # IMPORTANTE: Usamos la ruta completa porque con sudo, $HOME podría fallar.
